@@ -1,0 +1,19 @@
+<view class="search-box">
+  <input placeholder="搜索语言名称或介绍…" bindinput="onInput" confirm-type="search" />
+</view>
+
+<scroll-view scroll-x="true" class="era-bar">
+  <block wx:for="{{eras}}" wx:key="*this">
+    <text class="chip {{index === eraIdx ? 'chip-on' : ''}}" bindtap="onEra" data-i="{{index}}">{{item}}</text>
+  </block>
+</scroll-view>
+
+<view class="muted count">共 {{list.length}} 种</view>
+
+<block wx:for="{{list}}" wx:key="i">
+  <view class="lang-item" bindtap="goDetail" data-id="{{item.i}}">
+    <view class="lang-name">{{item.n}}</view>
+    <view class="lang-meta">{{item.y}}年 · {{item.t}}</view>
+  </view>
+</block>
+<view class="muted" style="text-align:center;padding:40rpx;" wx:if="{{list.length === 0}}">没有找到匹配的语言</view>
