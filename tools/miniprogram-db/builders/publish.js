@@ -29,9 +29,10 @@ function copyDir(src, dest) {
 
 function main() {
   const dist = path.join(ROOT, 'dist');
-  // 主包：总索引 + 加载接口
+  // 主包：总索引 + 加载接口 + 精选速查
   copyDir(path.join(dist, 'data', 'db'), path.join(MP, 'data', 'db'));
   fs.copyFileSync(path.join(dist, 'data', 'db-loader.js'), path.join(MP, 'data', 'db-loader.js'));
+  fs.copyFileSync(path.join(dist, 'data', 'featured.js'), path.join(MP, 'data', 'featured.js'));
 
   // 删除旧的单分包
   fs.rmSync(path.join(MP, 'packageDb'), { recursive: true, force: true });
