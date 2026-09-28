@@ -1,0 +1,50 @@
+<view class="card head">
+  <view class="d-name">{{lang.n}}</view>
+  <view class="d-year">{{lang.y}}年</view>
+  <view class="d-info">作者：{{lang.by}}</view>
+  <view class="d-info">类型：{{lang.t}}　类型系统：{{lang.ts}}</view>
+  <view class="d-info">范式：{{lang.p.join(' / ')}}</view>
+  <view class="d-info">领域：{{lang.dom.join(' · ')}}</view>
+</view>
+
+<view class="card">
+  <view class="card-title">📝 介绍</view>
+  <view class="body-text">{{lang.desc}}</view>
+</view>
+
+<view class="card" wx:if="{{lang.feat.length}}">
+  <view class="card-title">✨ 核心特性</view>
+  <block wx:for="{{lang.feat}}" wx:key="*this">
+    <view class="feat-item">▸ {{item}}</view>
+  </block>
+</view>
+
+<view class="card" wx:if="{{fullKw}}">
+  <view class="card-title">🔑 关键字全解（{{fullKw.length}}）</view>
+  <block wx:for="{{fullKw}}" wx:key="k">
+    <view class="kw-item">
+      <view class="kv-row">
+        <view class="kv-k">{{item.k}}</view>
+        <view class="kv-d">{{item.d}}</view>
+      </view>
+      <view class="kw-ex" wx:if="{{item.e}}">{{item.e}}</view>
+    </view>
+  </block>
+</view>
+
+<view class="card" wx:elif="{{lang.kw.length}}">
+  <view class="card-title">🔑 关键字解析（{{lang.kw.length}}）</view>
+  <block wx:for="{{lang.kw}}" wx:key="k">
+    <view class="kv-row">
+      <view class="kv-k">{{item.k}}</view>
+      <view class="kv-d">{{item.d}}</view>
+    </view>
+  </block>
+</view>
+
+<view class="card" wx:if="{{lang.code}}">
+  <view class="card-title">💻 代码示例</view>
+  <pre class="code">{{lang.code}}</pre>
+</view>
+
+<view style="height:40rpx;"></view>
