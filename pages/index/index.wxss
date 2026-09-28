@@ -1,0 +1,43 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0 30rpx;
+}
+.hero-logo { font-size: 110rpx; }
+.hero-name {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #ffd9a0;
+  margin-top: 16rpx;
+  letter-spacing: 12rpx;
+}
+.hero-sub { color: #a97c50; margin-top: 12rpx; font-size: 26rpx; }
+.daily-name { font-size: 34rpx; font-weight: bold; color: #ffd166; margin-bottom: 12rpx; }
+.daily-desc { line-height: 1.7; margin-bottom: 12rpx; }
+.stats { display: flex; justify-content: space-around; margin: 10rpx 20rpx; }
+.stat { display: flex; flex-direction: column; align-items: center; }
+.stat-num { font-size: 52rpx; font-weight: bold; color: #ffd166; }
+.stat-label { color: #a97c50; font-size: 24rpx; margin-top: 8rpx; }
+.nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10rpx 20rpx 40rpx;
+}
+.nav-card {
+  width: 48%;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16rpx;
+  padding: 36rpx 0;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-icon { font-size: 64rpx; }
+.nav-text { margin-top: 14rpx; font-size: 30rpx; color: #ffd9a0; }
+.db-stats { display: flex; justify-content: space-around; margin: 16rpx 0; }
+.db-stat { display: flex; flex-direction: column; align-items: center; }
+.db-num { font-size: 44rpx; font-weight: bold; color: #7ef0c8; font-family: monospace; }
+.db-label { color: #a97c50; font-size: 24rpx; margin-top: 8rpx; }
