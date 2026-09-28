@@ -1,41 +1,70 @@
 const loader = require('../../data/db-loader.js');
+const featured = require('../../data/featured.js');
 
 Page({
   data: {
     stats: null,
     dbs: [],
+    // 精选速查（主包内置）
+    featTab: 'dos', // dos | ps
+    featList: [],
+    expandedId: '',
+    // 每个库独立的搜索框
+    queries: {},
     // 进制转换器（保留）
     convInput: '42',
     convBase: 10,
     bases: ['2', '8', '10', '16'],
     baseIdx: 2,
     convOut: {},
-    query: '',
   },
   onLoad() {
-    this.setData({ stats: loader.getStats(), dbs: loader.getDbs() });
+    this.setData({
+      stats: loader.getStats(),
+      dbs: loader.getDbs(),
+      featList: featured.dos,
+    });
     this.convert();
   },
   onShow() {
-    // 每次显示刷新统计（离线数据，基本不变）
     this.setData({ stats: loader.getStats() });
   },
+  // ---- 精选速查 ----
+  onFeatTab(e) {
+    const t = e.currentTarget.dataset.tab;
+    this.setData({
+      featTab: t,
+      featList: t === 'dos' ? featured.dos : featured.ps,
+      expandedId: '',
+    });
+  },
+  onFeatToggle(e) {
+    const id = e.currentTarget.dataset.id;
+    this.setData({ expandedId: this.data.expandedId === id ? '' : id });
+  },
+  // ---- 全库入口 ----
   onDbTap(e) {
     loader.goBrowser(e.currentTarget.dataset.db);
   },
   onCatTap(e) {
     const d = e.currentTarget.dataset;
+    if (!d.db) {
+      wx.showToast({ title: '参数错误', icon: 'none' });
+      return;
+    }
     loader.goBrowser(d.db, { category: d.cat });
   },
   onQueryInput(e) {
-    this.setData({ query: e.detail.value.trim() });
+    const db = e.currentTarget.dataset.db;
+    this.setData({ ['queries.' + db]: e.detail.value });
   },
   onSearch(e) {
     const db = e.currentTarget.dataset.db;
-    const q = this.data.query;
-    if (!q) return;
+    const q = ((this.data.queries[db] || '') + '').trim();
+    if (!db || !q) return;
     loader.goBrowser(db, { q });
   },
+  // ---- 进制转换器 ----
   onConvInput(e) {
     this.setData({ convInput: e.detail.value.trim() });
     this.convert();
