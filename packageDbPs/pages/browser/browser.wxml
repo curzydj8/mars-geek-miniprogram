@@ -16,8 +16,8 @@
   <block wx:for="{{items}}" wx:key="id">
     <view class="row" data-id="{{item.id}}" bindtap="onItemTap">
       <view class="row-name">
-        <block wx:for="{{item.segs}}" wx:key="*this">
-          <text class="{{item.hit ? 'hl' : ''}}">{{item.t}}</text>
+        <block wx:for="{{item.segs}}" wx:for-item="seg" wx:key="index">
+          <text class="{{seg.hit ? 'hl' : ''}}">{{seg.t}}</text>
         </block>
       </view>
       <view class="row-sub">{{item.sub}}</view>
