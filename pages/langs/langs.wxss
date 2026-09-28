@@ -1,0 +1,13 @@
+.era-bar { white-space: nowrap; padding: 0 12rpx; }
+.count { padding: 0 28rpx; }
+.lang-item {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16rpx;
+  padding: 24rpx 28rpx;
+  margin: 16rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lang-name { font-size: 32rpx; font-weight: bold; color: #fff; flex: 1; }
+.lang-meta { color: #a97c50; font-size: 24rpx; }
