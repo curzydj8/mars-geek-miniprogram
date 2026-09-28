@@ -1,0 +1,57 @@
+.conv-row { display: flex; align-items: center; margin-bottom: 12rpx; }
+.conv-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12rpx;
+  padding: 16rpx 24rpx;
+  color: #fff;
+  margin-right: 16rpx;
+  font-family: monospace;
+}
+.lang-pick {
+  background: rgba(255, 209, 102, 0.14);
+  border-radius: 12rpx;
+  padding: 18rpx;
+  text-align: center;
+  color: #ffd9a0;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.stat-grid { display: flex; margin: 16rpx 0; }
+.stat { flex: 1; text-align: center; }
+.stat-n { font-size: 44rpx; font-weight: bold; color: #ffd166; font-family: monospace; }
+.stat-l { font-size: 24rpx; color: #98a2c3; margin-top: 6rpx; }
+.db-head { display: flex; align-items: center; padding: 8rpx 0 16rpx; }
+.db-icon { font-size: 56rpx; margin-right: 20rpx; }
+.db-info { flex: 1; }
+.db-name { font-size: 34rpx; font-weight: bold; color: #ffd9a0; }
+.db-go { font-size: 48rpx; color: #a97c50; }
+.search-row { display: flex; align-items: center; margin-bottom: 14rpx; }
+.cat-list { display: flex; flex-wrap: wrap; }
+.cat-chip {
+  background: rgba(255,255,255,0.07);
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx;
+  margin: 0 12rpx 12rpx 0;
+  font-size: 26rpx;
+  color: #98a2c3;
+}
+.tabs { display: flex; margin-top: 16rpx; background: rgba(255,255,255,0.06); border-radius: 14rpx; padding: 6rpx; }
+.tab { flex: 1; text-align: center; padding: 16rpx 0; font-size: 28rpx; color: #98a2c3; border-radius: 10rpx; }
+.tab-on { background: linear-gradient(135deg, #6366f1, #22d3ee); color: #fff; font-weight: bold; }
+.intro { margin-top: 16rpx; font-size: 26rpx; line-height: 1.7; color: #98a2c3; }
+.kw-item { padding: 14rpx 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.kw-item:last-child { border-bottom: none; }
+.kw-ex {
+  margin: 10rpx 0 4rpx 0;
+  background: #080b14;
+  border: 1px solid #232c4d;
+  border-radius: 10rpx;
+  padding: 14rpx 18rpx;
+  font-family: monospace;
+  font-size: 25rpx;
+  line-height: 1.7;
+  color: #7ef0c8;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
