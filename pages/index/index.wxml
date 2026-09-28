@@ -1,0 +1,42 @@
+<view class="hero">
+  <text class="hero-logo">🔴</text>
+  <text class="hero-name">火星极客</text>
+  <text class="hero-sub">代码 · 极客 · 探索</text>
+</view>
+
+<view class="card" bindtap="goDetail" data-id="{{daily.fullIdx}}">
+  <view class="card-title">📖 每日一语</view>
+  <view class="daily-name">{{daily.n}} · {{daily.y}}年</view>
+  <view class="daily-desc">{{daily.desc}}</view>
+  <view class="muted">点击查看详情 →</view>
+</view>
+
+<view class="stats">
+  <view class="stat"><text class="stat-num">{{total}}</text><text class="stat-label">收录语言</text></view>
+  <view class="stat"><text class="stat-num">{{kwTotal}}</text><text class="stat-label">关键字解析</text></view>
+</view>
+
+<view class="card" wx:if="{{dbStats}}" bindtap="goTab" data-url="/pages/keywords/keywords">
+  <view class="card-title">🗄️ 知识库</view>
+  <view class="db-stats">
+    <view class="db-stat"><text class="db-num">{{dbStats.dos}}</text><text class="db-label">DOS命令</text></view>
+    <view class="db-stat"><text class="db-num">{{dbStats.powershell}}</text><text class="db-label">PS命令</text></view>
+    <view class="db-stat"><text class="db-num">{{dbStats.examples}}</text><text class="db-label">示例</text></view>
+  </view>
+  <view class="muted">点击进入知识库 →</view>
+</view>
+
+<view class="nav-grid">
+  <view class="nav-card" bindtap="goTab" data-url="/pages/langs/langs">
+    <text class="nav-icon">💻</text><text class="nav-text">语言图鉴</text>
+  </view>
+  <view class="nav-card" bindtap="goTab" data-url="/pages/keywords/keywords">
+    <text class="nav-icon">📚</text><text class="nav-text">关键字手册</text>
+  </view>
+  <view class="nav-card" bindtap="goAbout">
+    <text class="nav-icon">🎮</text><text class="nav-text">小游戏</text>
+  </view>
+  <view class="nav-card" bindtap="goAbout">
+    <text class="nav-icon">🪐</text><text class="nav-text">关于我们</text>
+  </view>
+</view>
