@@ -1,0 +1,34 @@
+<view class="card head" wx:if="{{rec}}">
+  <view class="d-name">{{rec.n}}</view>
+  <view class="d-info">{{rec.ct}}</view>
+  <view class="body-text" wx:if="{{rec.cn}}">{{rec.cn}}</view>
+  <view class="body-text muted" wx:if="{{rec.en}}">{{rec.en}}</view>
+</view>
+
+<view class="card" wx:if="{{rec && rec.syn}}">
+  <view class="card-title">⌨️ 语法</view>
+  <view class="code">{{rec.syn}}</view>
+</view>
+
+<view class="card" wx:if="{{rec && rec.pa.length}}">
+  <view class="card-title">⚙️ 参数（{{rec.pa.length}}）</view>
+  <block wx:for="{{rec.pa}}" wx:key="n">
+    <view class="kv-row">
+      <view class="kv-k">{{item.n}}</view>
+      <view class="kv-d">{{item.d}}</view>
+    </view>
+  </block>
+</view>
+
+<view class="card" wx:if="{{rec && rec.ex.length}}">
+  <view class="card-title">💡 示例（{{rec.ex.length}}）</view>
+  <block wx:for="{{rec.ex}}" wx:key="*this">
+    <view class="ex-item">
+      <view class="ex-t" wx:if="{{item.t}}">{{item.t}}</view>
+      <view class="muted" wx:if="{{item.d}}">{{item.d}}</view>
+      <view class="code">{{item.c}}</view>
+    </view>
+  </block>
+</view>
+
+<view style="height:40rpx;"></view>
