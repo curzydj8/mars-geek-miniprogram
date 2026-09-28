@@ -9,23 +9,60 @@
   <view class="muted">全部离线可用 · 数据来自微软官方文档与火星极客精选</view>
 </view>
 
-<block wx:for="{{dbs}}" wx:key="id">
+<view class="card">
+  <view class="card-title">⚡ 精选速查</view>
+  <view class="tabs">
+    <view class="tab {{featTab==='dos' ? 'tab-on' : ''}}" data-tab="dos" bindtap="onFeatTab">DOS / CMD</view>
+    <view class="tab {{featTab==='ps' ? 'tab-on' : ''}}" data-tab="ps" bindtap="onFeatTab">PowerShell</view>
+  </view>
+  <block wx:for="{{featList}}" wx:key="id">
+    <view class="feat-item">
+      <view class="feat-head" data-id="{{item.id}}" bindtap="onFeatToggle">
+        <text class="feat-name">{{item.n}}</text>
+        <text class="feat-desc">{{item.d}}</text>
+        <text class="feat-arrow">{{expandedId===item.id ? '▾' : '▸'}}</text>
+      </view>
+      <view class="feat-body" wx:if="{{expandedId===item.id}}">
+        <view class="feat-sec" wx:if="{{item.s}}">
+          <view class="feat-k">语法</view>
+          <view class="feat-code">{{item.s}}</view>
+        </view>
+        <view class="feat-sec" wx:if="{{item.p}}">
+          <view class="feat-k">参数</view>
+          <block wx:for="{{item.p}}" wx:for-item="pm" wx:key="n">
+            <view class="feat-p"><text class="feat-pn">{{pm.n}}</text><text class="feat-pd">{{pm.d}}</text></view>
+          </block>
+        </view>
+        <view class="feat-sec" wx:if="{{item.e}}">
+          <view class="feat-k">示例</view>
+          <block wx:for="{{item.e}}" wx:for-item="ex" wx:key="index">
+            <view class="feat-exd" wx:if="{{ex.d}}">{{ex.d}}</view>
+            <view class="feat-code">{{ex.c}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="muted">点条目展开语法 / 参数 / 示例 · 完整 3000+ 条目见下方全库</view>
+</view>
+
+<block wx:for="{{dbs}}" wx:for-item="db" wx:key="id">
   <view class="card">
-    <view class="db-head" data-db="{{item.id}}" bindtap="onDbTap">
-      <view class="db-icon">{{item.icon}}</view>
+    <view class="db-head" data-db="{{db.id}}" bindtap="onDbTap">
+      <view class="db-icon">{{db.icon}}</view>
       <view class="db-info">
-        <view class="db-name">{{item.name}}</view>
-        <view class="muted">{{item.total}} 条 · {{item.categories.length}} 个分类</view>
+        <view class="db-name">{{db.name}}</view>
+        <view class="muted">{{db.total}} 条 · {{db.categories.length}} 个分类</view>
       </view>
       <view class="db-go">›</view>
     </view>
     <view class="search-row">
-      <input class="conv-input" placeholder="搜索{{item.name}}…" bindinput="onQueryInput" />
-      <view class="chip chip-on" data-db="{{item.id}}" bindtap="onSearch">搜索</view>
+      <input class="conv-input" placeholder="搜索{{db.name}}…" data-db="{{db.id}}" bindinput="onQueryInput" />
+      <view class="chip chip-on" data-db="{{db.id}}" bindtap="onSearch">搜索</view>
     </view>
     <view class="cat-list">
-      <block wx:for="{{item.categories}}" wx:key="name">
-        <view class="cat-chip" data-db="{{item.id}}" data-cat="{{item.name}}" bindtap="onCatTap">{{item.name}} {{item.count}}</view>
+      <block wx:for="{{db.categories}}" wx:for-item="cat" wx:key="name">
+        <view class="cat-chip" data-db="{{db.id}}" data-cat="{{cat.name}}" bindtap="onCatTap">{{cat.name}} {{cat.count}}</view>
       </block>
     </view>
   </view>
