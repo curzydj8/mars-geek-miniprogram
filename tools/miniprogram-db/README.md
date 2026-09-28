@@ -12,6 +12,7 @@ node scrapers/lang-keywords.js# 3. 144 种语言关键字库（2057 个关键字
 node builders/split.js        # 4. 自动拆分分片 + 各库目录索引
 node builders/build-index.js  # 5. 总目录索引
 node builders/loader-gen.js   # 6. 生成数据加载接口
+node builders/featured-gen.js # 6b. 生成主包精选速查（30 DOS + 20 PS，全详情）
 node builders/publish.js      # 7. 发布到小程序工程
 ```
 
