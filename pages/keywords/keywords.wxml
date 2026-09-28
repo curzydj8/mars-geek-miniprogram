@@ -1,0 +1,51 @@
+<view class="card">
+  <view class="card-title">📊 知识库统计</view>
+  <view class="stat-grid" wx:if="{{stats}}">
+    <view class="stat"><view class="stat-n">{{stats.records}}</view><view class="stat-l">总条目</view></view>
+    <view class="stat"><view class="stat-n">{{stats.keywords}}</view><view class="stat-l">语言关键字</view></view>
+    <view class="stat"><view class="stat-n">{{stats.examples}}</view><view class="stat-l">示例</view></view>
+    <view class="stat"><view class="stat-n">{{stats.params}}</view><view class="stat-l">参数</view></view>
+  </view>
+  <view class="muted">全部离线可用 · 数据来自微软官方文档与火星极客精选</view>
+</view>
+
+<block wx:for="{{dbs}}" wx:key="id">
+  <view class="card">
+    <view class="db-head" data-db="{{item.id}}" bindtap="onDbTap">
+      <view class="db-icon">{{item.icon}}</view>
+      <view class="db-info">
+        <view class="db-name">{{item.name}}</view>
+        <view class="muted">{{item.total}} 条 · {{item.categories.length}} 个分类</view>
+      </view>
+      <view class="db-go">›</view>
+    </view>
+    <view class="search-row">
+      <input class="conv-input" placeholder="搜索{{item.name}}…" bindinput="onQueryInput" />
+      <view class="chip chip-on" data-db="{{item.id}}" bindtap="onSearch">搜索</view>
+    </view>
+    <view class="cat-list">
+      <block wx:for="{{item.categories}}" wx:key="name">
+        <view class="cat-chip" data-db="{{item.id}}" data-cat="{{item.name}}" bindtap="onCatTap">{{item.name}} {{item.count}}</view>
+      </block>
+    </view>
+  </view>
+</block>
+
+<view class="card">
+  <view class="card-title">🔢 进制转换器</view>
+  <view class="conv-row">
+    <input class="conv-input" value="{{convInput}}" bindinput="onConvInput" placeholder="输入数字" />
+    <picker mode="selector" range="{{bases}}" value="{{baseIdx}}" bindchange="onPickBase">
+      <view class="chip chip-on">{{convBase}}进制 ▾</view>
+    </picker>
+  </view>
+  <block wx:if="{{convOut}}">
+    <view class="kv-row"><view class="kv-k">二进制 BIN</view><view class="kv-d">{{convOut.b2}}</view></view>
+    <view class="kv-row"><view class="kv-k">八进制 OCT</view><view class="kv-d">{{convOut.b8}}</view></view>
+    <view class="kv-row"><view class="kv-k">十进制 DEC</view><view class="kv-d">{{convOut.b10}}</view></view>
+    <view class="kv-row"><view class="kv-k">十六进制 HEX</view><view class="kv-d">{{convOut.b16}}</view></view>
+  </block>
+  <view class="muted" wx:else>输入的数字无法按 {{convBase}} 进制解析</view>
+</view>
+
+<view style="height:40rpx;"></view>
