@@ -1,0 +1,21 @@
+.head { text-align: center; }
+.d-name { font-size: 44rpx; font-weight: bold; color: #ffd166; }
+.d-year { font-size: 30rpx; color: #ffd9a0; margin: 10rpx 0; }
+.d-info { color: #a97c50; font-size: 26rpx; margin-top: 8rpx; }
+.body-text { line-height: 1.8; }
+.feat-item { padding: 10rpx 0; line-height: 1.6; }
+.kw-item { padding: 14rpx 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.kw-item:last-child { border-bottom: none; }
+.kw-ex {
+  margin: 10rpx 0 4rpx 0;
+  background: #080b14;
+  border: 1px solid #232c4d;
+  border-radius: 10rpx;
+  padding: 14rpx 18rpx;
+  font-family: monospace;
+  font-size: 25rpx;
+  line-height: 1.7;
+  color: #7ef0c8;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
