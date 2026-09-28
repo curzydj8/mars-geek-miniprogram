@@ -1,0 +1,34 @@
+<view class="card head" wx:if="{{rec}}">
+  <view class="d-name">{{rec.n}}</view>
+  <view class="d-info">{{rec.year}}年 · {{rec.author}}</view>
+  <view class="d-info">{{rec.ct}} · {{rec.era}}</view>
+  <view class="body-text" wx:if="{{rec.desc}}">{{rec.desc}}</view>
+</view>
+
+<view class="card" wx:if="{{rec && rec.code}}">
+  <view class="card-title">💻 代码示例</view>
+  <view class="code">{{rec.code}}</view>
+</view>
+
+<view class="card">
+  <view class="card-title">🔑 关键字（{{kwList.length}}/{{rec.kc}}）</view>
+  <view class="search-row">
+    <input class="conv-input" placeholder="在关键字中搜索…" bindinput="onInput" />
+  </view>
+  <block wx:for="{{kwList}}" wx:key="k">
+    <view class="kw-item">
+      <view class="kv-row">
+        <view class="kv-k">
+          <block wx:for="{{item.segs}}" wx:key="*this">
+            <text class="{{item.hit ? 'hl' : ''}}">{{item.t}}</text>
+          </block>
+        </view>
+        <view class="kv-d">{{item.d}}</view>
+      </view>
+      <view class="kw-ex" wx:if="{{item.e}}">{{item.e}}</view>
+    </view>
+  </block>
+  <view class="muted center" wx:if="{{!kwList.length}}">没有匹配的关键字</view>
+</view>
+
+<view style="height:40rpx;"></view>
