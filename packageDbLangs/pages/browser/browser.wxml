@@ -1,0 +1,32 @@
+<view class="card">
+  <view class="search-row">
+    <input class="conv-input" value="{{inputQ}}" bindinput="onInput" bindconfirm="onSearch" placeholder="搜索…" confirm-type="search" />
+    <view class="chip chip-on" bindtap="onSearch">搜索</view>
+  </view>
+  <view class="cat-list">
+    <view class="cat-chip {{category==='' && q==='' ? 'cat-on' : ''}}" bindtap="onClearFilter">全部 {{total}}</view>
+    <block wx:for="{{cats}}" wx:key="name">
+      <view class="cat-chip {{category===item.name ? 'cat-on' : ''}}" data-cat="{{item.name}}" bindtap="onCatTap">{{item.name}} {{item.count}}</view>
+    </block>
+  </view>
+  <view class="muted" wx:if="{{q}}">搜索"{{q}}" · {{total}} 条结果</view>
+</view>
+
+<view class="card">
+  <block wx:for="{{items}}" wx:key="id">
+    <view class="row" data-id="{{item.id}}" bindtap="onItemTap">
+      <view class="row-name">
+        <block wx:for="{{item.segs}}" wx:key="*this">
+          <text class="{{item.hit ? 'hl' : ''}}">{{item.t}}</text>
+        </block>
+      </view>
+      <view class="row-sub">{{item.sub}}</view>
+      <view class="row-meta">{{item.meta}}</view>
+    </view>
+  </block>
+  <view class="muted center" wx:if="{{!items.length}}">没有找到相关条目</view>
+  <view class="muted center" wx:if="{{page < totalPages}}">上滑加载更多（{{page}}/{{totalPages}}页）</view>
+  <view class="muted center" wx:if="{{items.length && page >= totalPages}}">— 到底了，共 {{total}} 条 —</view>
+</view>
+
+<view style="height:40rpx;"></view>
