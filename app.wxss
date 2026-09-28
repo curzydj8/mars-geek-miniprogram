@@ -1,0 +1,73 @@
+/* 火星极客 · 全局深色主题 */
+page {
+  background-color: #1a0f0a;
+  color: #f3e2cc;
+  font-size: 28rpx;
+}
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 20rpx;
+}
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ffd9a0;
+  margin-bottom: 16rpx;
+}
+.muted { color: #a97c50; font-size: 24rpx; }
+.accent { color: #ffd166; }
+.search-box {
+  margin: 20rpx;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 40rpx;
+  padding: 16rpx 32rpx;
+  display: flex;
+  align-items: center;
+}
+.search-box input { flex: 1; color: #fff; }
+.chip {
+  display: inline-block;
+  padding: 8rpx 24rpx;
+  margin: 8rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 209, 102, 0.14);
+  color: #ffd9a0;
+  font-size: 24rpx;
+}
+.chip-on {
+  background: #c1442e;
+  color: #fff;
+}
+.btn {
+  background: #c1442e;
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 20rpx;
+}
+.kv-row {
+  display: flex;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+.kv-k {
+  width: 300rpx;
+  color: #ffd166;
+  font-family: monospace;
+  flex-shrink: 0;
+}
+.kv-d { flex: 1; color: #e8d9c4; }
+pre.code {
+  background: #0d0705;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-family: monospace;
+  font-size: 24rpx;
+  color: #c9e4c5;
+  white-space: pre-wrap;
+  margin-top: 12rpx;
+}
