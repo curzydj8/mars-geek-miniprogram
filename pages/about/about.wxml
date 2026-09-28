@@ -1,0 +1,24 @@
+<view class="hero">
+  <text class="hero-logo">🔴</text>
+  <text class="hero-name">火星极客</text>
+  <text class="hero-sub">代码 · 极客 · 探索</text>
+</view>
+
+<view class="card">
+  <view class="card-title">🪐 关于我们</view>
+  <view class="body-text">火星极客是一个面向代码爱好者的内容品牌。我们收录整理了 144 种计算机语言的图鉴与关键字手册，用轻松的方式带你看懂代码世界。</view>
+  <view class="body-text" style="margin-top:12rpx;">公众号 / 小程序 / 小游戏 / 视频号，全网同名「火星极客」。</view>
+</view>
+
+<view class="card">
+  <view class="card-title">🎮 小游戏《红色星球计划》</view>
+  <view class="body-text">在火星上建造殖民地，平衡电力、氧气、水和食物，努力活过 30 个火星日！在微信「发现 → 小游戏」中搜索「红色星球计划」即可游玩。</view>
+</view>
+
+<view class="card">
+  <view class="card-title">📣 关注公众号</view>
+  <view class="body-text">在微信搜索公众号「火星极客」并关注，获取最新文章与游戏更新。</view>
+  <button class="btn" bindtap="copyAccount">复制名称去搜索</button>
+</view>
+
+<view class="muted" style="text-align:center;padding:20rpx 0 60rpx;">火星极客 v1.0 · 用代码探索宇宙</view>
