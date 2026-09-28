@@ -55,3 +55,35 @@
   white-space: pre-wrap;
   word-break: break-all;
 }
+.feat-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.feat-item:last-child { border-bottom: none; }
+.feat-head { display: flex; align-items: center; padding: 18rpx 0; }
+.feat-name {
+  font-family: monospace;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #7ef0c8;
+  margin-right: 16rpx;
+}
+.feat-desc { flex: 1; font-size: 26rpx; color: #98a2c3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.feat-arrow { color: #a97c50; font-size: 28rpx; margin-left: 12rpx; }
+.feat-body { padding: 4rpx 0 18rpx; }
+.feat-sec { margin-top: 14rpx; }
+.feat-k { font-size: 24rpx; color: #a97c50; margin-bottom: 8rpx; }
+.feat-code {
+  background: #080b14;
+  border: 1px solid #232c4d;
+  border-radius: 10rpx;
+  padding: 14rpx 18rpx;
+  font-family: monospace;
+  font-size: 25rpx;
+  line-height: 1.7;
+  color: #7ef0c8;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin-bottom: 8rpx;
+}
+.feat-p { display: flex; padding: 8rpx 0; font-size: 26rpx; }
+.feat-pn { font-family: monospace; color: #ffd166; margin-right: 16rpx; flex-shrink: 0; }
+.feat-pd { color: #98a2c3; }
+.feat-exd { font-size: 26rpx; color: #98a2c3; margin: 8rpx 0 6rpx; }
