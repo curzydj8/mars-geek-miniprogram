@@ -38,6 +38,10 @@ function getCategories(db) { const d = getDb(db); return d ? d.categories : []; 
 function goBrowser(db, opts) {
   opts = opts || {};
   const r = ROUTES[db];
+  if (!r) {
+    if (typeof wx !== 'undefined' && wx.showToast) wx.showToast({ title: '知识库加载失败', icon: 'none' });
+    return;
+  }
   const q = ['db=' + db];
   if (opts.category) q.push('category=' + encodeURIComponent(opts.category));
   if (opts.q) q.push('q=' + encodeURIComponent(opts.q));
